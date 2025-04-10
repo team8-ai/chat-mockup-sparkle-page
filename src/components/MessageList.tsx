@@ -40,6 +40,13 @@ const MessageList = ({ conversation, currentUser }: MessageListProps) => {
     }
   };
 
+  // Helper function to format message content (bold markdown)
+  const formatContent = (content: string): string => {
+    // Replace **text** with <strong>text</strong>
+    return content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Note: Add more formatting rules here if needed (e.g., italics, links)
+  };
+
   // Group messages by sender (to avoid showing avatar for consecutive messages from same sender)
   const renderMessageGroups = () => {
     const messageGroups: Message[][] = [];
@@ -100,7 +107,7 @@ const MessageList = ({ conversation, currentUser }: MessageListProps) => {
               )}
               
               {/* Message group */}
-              <div className={cn("flex flex-col max-w-[80%] space-y-1", 
+              <div className={cn("flex flex-col max-w-[90%] space-y-1", 
                 isCurrentUser ? "items-end" : "items-start"
               )}>
                 {/* Sender name (only for group chats and first message in a group) */}
@@ -115,7 +122,7 @@ const MessageList = ({ conversation, currentUser }: MessageListProps) => {
                   <div key={message.id} className="flex flex-col">
                     <div 
                       className={cn(
-                        "relative group",
+                        "relative group whitespace-pre-wrap",
                         isCurrentUser ? "user-message" : "other-message",
                         // Adjust borders for consecutive messages in a group
                         messageIndex === 0 && group.length > 1 
@@ -130,7 +137,8 @@ const MessageList = ({ conversation, currentUser }: MessageListProps) => {
                       )}
                       dir="auto"
                     >
-                      {message.content}
+                      {/* Use dangerouslySetInnerHTML to render formatted content */}
+                      <div dangerouslySetInnerHTML={{ __html: formatContent(message.content) }} />
                       
                       {/* Attachments */}
                       {message.attachments?.map(attachment => (
