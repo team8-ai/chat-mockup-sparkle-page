@@ -1,4 +1,3 @@
-
 import { Conversation, User } from "@/types/chat";
 
 // Mock users
@@ -43,55 +42,55 @@ export const users: User[] = [
 export const conversations: Conversation[] = [
   {
     id: "c1",
-    name: "Project Team",
+    name: "צוות הפרויקט",
     isGroup: true,
     participants: [users[0], users[1], users[2], users[3], users[4]],
     messages: [
       {
         id: "m1",
-        content: "Good morning everyone! How's the project coming along?",
+        content: "שלום לכולם! מה שלומכם?",
         sender: users[1],
         timestamp: "09:15 AM",
         status: "read"
       },
       {
         id: "m2",
-        content: "I've finished the design mockups. Will share them soon.",
+        content: "סיימתי את המוקאפים של העיצוב. אשתף אותם בקרוב.",
         sender: users[3],
         timestamp: "09:18 AM",
         status: "read"
       },
       {
         id: "m3",
-        content: "Great work Morgan! I'm still working on the API documentation.",
+        content: "עבודה מצוינת מורגן! אני עדיין עובד/ת על תיעוד ה-API.",
         sender: users[2],
         timestamp: "09:20 AM",
         status: "read"
       },
       {
         id: "m4",
-        content: "I've pushed some code changes to the repo. Could someone review them?",
+        content: "דחפתי כמה שינויי קוד למאגר. מישהו יכול לבדוק אותם?",
         sender: users[4],
         timestamp: "09:25 AM",
         status: "read"
       },
       {
         id: "m5",
-        content: "I'll take a look at them after lunch, Jamie.",
+        content: "אני אעיף מבט אחרי ארוחת הצהריים, ג'יימי.",
         sender: users[0],
         timestamp: "09:30 AM",
         status: "delivered"
       },
       {
         id: "m6",
-        content: "Thanks! I've also noticed a bug in the login flow. The error messages aren't showing up correctly.",
+        content: "תודה! שמתי לב גם לבאג בתהליך ההתחברות. הודעות השגיאה לא מופיעות כראוי.",
         sender: users[4],
         timestamp: "09:32 AM",
         status: "read"
       },
       {
         id: "m7",
-        content: "Here are the design mockups I promised!",
+        content: "הנה המוקאפים שהבטחתי!",
         sender: users[3],
         timestamp: "09:35 AM",
         status: "read",
@@ -107,63 +106,63 @@ export const conversations: Conversation[] = [
       },
       {
         id: "m8",
-        content: "These look amazing, Morgan! I especially like the new navigation design.",
+        content: "זה נראה מדהים, מורגן! אני אוהב/ת במיוחד את עיצוב הניווט החדש.",
         sender: users[1],
         timestamp: "09:40 AM",
         status: "read"
       },
       {
         id: "m9",
-        content: "I agree, the mockups look great! But I think we might need to adjust the color scheme to match our brand guidelines.",
+        content: "מסכים/ה, המוקאפים נראים נהדר! אבל אני חושב/ת שאולי נצטרך להתאים את סכמת הצבעים להנחיות המותג שלנו.",
         sender: users[0],
         timestamp: "09:45 AM",
         status: "delivered"
       },
       {
         id: "m10",
-        content: "Sure, I can make those adjustments. Which colors should we use instead?",
+        content: "בטח, אני יכול/ה לבצע את ההתאמות. באילו צבעים עלינו להשתמש במקום זאת?",
         sender: users[3],
         timestamp: "09:48 AM",
         status: "read"
       },
       {
         id: "m11",
-        content: "Let's use our primary color #9b87f5 for the main elements, and we can use #7E69AB for secondary actions.",
+        content: "בוא/י נשתמש בצבע הראשי שלנו #9b87f5 לאלמנטים המרכזיים, ונוכל להשתמש ב-#7E69AB לפעולות משניות.",
         sender: users[0],
         timestamp: "09:50 AM",
         status: "sent"
       },
       {
         id: "m12",
-        content: "Should we have a team meeting to discuss the next steps?",
+        content: "האם כדאי שנקבע פגישת צוות לדון בצעדים הבאים?",
         sender: users[2],
         timestamp: "09:55 AM",
         status: "read"
       },
       {
         id: "m13",
-        content: "Good idea. How about tomorrow at 10 AM?",
+        content: "רעיון טוב. מה דעתכם על מחר ב-10:00 בבוקר?",
         sender: users[1],
         timestamp: "10:00 AM",
         status: "read"
       },
       {
         id: "m14",
-        content: "Works for me!",
+        content: "מתאים לי!",
         sender: users[0],
         timestamp: "10:05 AM",
         status: "sent"
       },
       {
         id: "m15",
-        content: "Same here.",
+        content: "גם לי.",
         sender: users[4],
         timestamp: "10:07 AM",
         status: "read"
       },
       {
         id: "m16",
-        content: "Great, I'll send a calendar invite shortly.",
+        content: "מעולה, אשלח הזמנה ביומן בקרוב.",
         sender: users[1],
         timestamp: "10:10 AM",
         status: "read"
@@ -172,69 +171,9 @@ export const conversations: Conversation[] = [
     unreadCount: 0,
     lastMessage: {
       id: "m16",
-      content: "Great, I'll send a calendar invite shortly.",
+      content: "מעולה, אשלח הזמנה ביומן בקרוב.",
       sender: users[1],
       timestamp: "10:10 AM",
-      status: "read"
-    }
-  },
-  {
-    id: "c2",
-    name: "Alex Johnson",
-    isGroup: false,
-    participants: [users[0], users[1]],
-    messages: [],
-    unreadCount: 2,
-    lastMessage: {
-      id: "m1",
-      content: "Can we discuss the client presentation?",
-      sender: users[1],
-      timestamp: "Yesterday",
-      status: "delivered"
-    }
-  },
-  {
-    id: "c3",
-    name: "Product Team",
-    isGroup: true,
-    participants: [users[0], users[2], users[3]],
-    messages: [],
-    unreadCount: 5,
-    lastMessage: {
-      id: "m1",
-      content: "New feature request from the client",
-      sender: users[2],
-      timestamp: "Yesterday",
-      status: "delivered"
-    }
-  },
-  {
-    id: "c4",
-    name: "Sam Taylor",
-    isGroup: false,
-    participants: [users[0], users[2]],
-    messages: [],
-    unreadCount: 0,
-    lastMessage: {
-      id: "m1",
-      content: "Thanks for your help with the report",
-      sender: users[0],
-      timestamp: "Monday",
-      status: "read"
-    }
-  },
-  {
-    id: "c5",
-    name: "Marketing Team",
-    isGroup: true,
-    participants: [users[0], users[1], users[4]],
-    messages: [],
-    unreadCount: 0,
-    lastMessage: {
-      id: "m1",
-      content: "Campaign results are in!",
-      sender: users[4],
-      timestamp: "Monday",
       status: "read"
     }
   }

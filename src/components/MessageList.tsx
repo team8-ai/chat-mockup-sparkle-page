@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import { Check, CheckCheck } from "lucide-react";
 import { Conversation, Message, User } from "@/types/chat";
@@ -129,6 +128,7 @@ const MessageList = ({ conversation, currentUser }: MessageListProps) => {
                           ? isCurrentUser ? "rounded-tr-md" : "rounded-tl-md" 
                           : ""
                       )}
+                      dir="auto"
                     >
                       {message.content}
                       
