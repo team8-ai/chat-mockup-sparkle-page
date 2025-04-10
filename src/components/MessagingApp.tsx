@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { conversations, users, activeConversationId as defaultActiveConversationId } from "@/data/mockData";
-import ChatSidebar from "./ChatSidebar";
 import ChatHeader from "./ChatHeader";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
@@ -42,46 +41,23 @@ const MessagingApp = () => {
     setLocalConversations(updatedConversations);
   };
   
-  // Handle conversation selection
-  const handleSelectConversation = (conversationId: string) => {
-    setActiveConversationId(conversationId);
-    
-    // Mark conversation as read when selected
-    setLocalConversations(
-      localConversations.map(conversation => 
-        conversation.id === conversationId
-          ? { ...conversation, unreadCount: 0 }
-          : conversation
-      )
-    );
-  };
-  
   if (!activeConversation) {
     return <div>Loading...</div>;
   }
   
   return (
-    <div className="flex h-full overflow-hidden bg-gray-50 rounded-lg shadow-lg">
-      <ChatSidebar 
-        conversations={localConversations} 
-        activeConversationId={activeConversationId}
+    <div className="flex flex-col h-full overflow-hidden bg-gray-50 rounded-lg shadow-lg">
+      <ChatHeader 
+        conversation={activeConversation}
         currentUser={currentUser}
-        onSelectConversation={handleSelectConversation}
       />
       
-      <div className="flex flex-col flex-1 h-full overflow-hidden">
-        <ChatHeader 
-          conversation={activeConversation}
-          currentUser={currentUser}
-        />
-        
-        <MessageList 
-          conversation={activeConversation}
-          currentUser={currentUser}
-        />
-        
-        <ChatInput onSendMessage={handleSendMessage} />
-      </div>
+      <MessageList 
+        conversation={activeConversation}
+        currentUser={currentUser}
+      />
+      
+      <ChatInput onSendMessage={handleSendMessage} />
     </div>
   );
 };
